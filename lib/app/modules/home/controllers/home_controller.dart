@@ -10,11 +10,21 @@ class HomeController extends GetxController {
   var provAsalId = 0.obs;
   var citytujuanlId = 0.obs;
   var provTujuanId = 0.obs;
+  var hiddenButton = true.obs;
+  var kurir = "".obs;
 
   double berat = 0.0;
   String satuan = "gram";
 
   late TextEditingController beratC;
+
+  void showButton() {
+    if (cityAsalId != 0 && citytujuanlId != 0 && berat > 0 && kurir != "") {
+      hiddenButton.value = false;
+    } else {
+      hiddenButton.value = true;
+    }
+  }
 
   void ubahBerat(String value) {
     berat = double.tryParse(value) ?? 0.0;
@@ -61,6 +71,7 @@ class HomeController extends GetxController {
         berat = berat;
     }
     print("$berat gram");
+    showButton();
   }
 
   void ubahSatuan(String value) {
@@ -108,6 +119,7 @@ class HomeController extends GetxController {
     }
     satuan = value;
     print("$berat gram");
+    showButton();
   }
 
   @override

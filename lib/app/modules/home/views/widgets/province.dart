@@ -61,16 +61,17 @@ class Profinsi extends GetView<HomeController> {
               controller.hiddenCityTujuan.value = false;
               controller.provTujuanId.value = int.parse(prov.provinceId!);
             }
+            controller.showButton();
           } else {
             if (tipe == "Asal") {
               controller.hiddenCityAsal.value = true;
               controller.provAsalId.value = 0;
             } else {
-               controller.hiddenCityTujuan.value = true;
+              controller.hiddenCityTujuan.value = true;
               controller.provTujuanId.value = 0;
             }
           }
-        },
+          controller.showButton();      },
         popupItemBuilder: (context, item, isSelected) {
           return Container(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),

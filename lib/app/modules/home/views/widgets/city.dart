@@ -63,11 +63,14 @@ class Kota extends GetView<HomeController> {
             } else {
               controller.citytujuanlId.value = int.parse(cityValue.cityId!);
             }
+            controller.showButton();
           } else {
             if (tipe == "Asal") {
               print("Tidak Memilih kota/kabupaten asal apapun");
+              controller.cityAsalId.value = 0;
             } else {
               print("Tidak Memilih kota/kabupaten asal apapun");
+              controller.citytujuanlId.value = 0;
             }
           }
         },
